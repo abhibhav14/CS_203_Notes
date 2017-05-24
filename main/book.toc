@@ -2,5 +2,6 @@
 \contentsline {chapter}{\chapternumberline {1}Groups}{1}
 \contentsline {section}{\numberline {1.1}Introduction}{1}
 \contentsline {subsection}{Examples}{2}
+\contentsline {section}{\numberline {1.2}Subgroups and Group Morphisms}{3}
 \contentsline {chapter}{\chapternumberline {2}Rings}{5}
 \contentsline {chapter}{\chapternumberline {3}Fields}{7}

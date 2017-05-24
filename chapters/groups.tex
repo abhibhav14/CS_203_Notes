@@ -36,4 +36,60 @@ A number of examples and counterexamples are presented below to reinforce the co
     The $n \times n$ identity matrix $I$ acts as the identity element.
     Further, since the product of invertible matrices is invertible, the operation is closed.
     This group is non-abelian.
+  \item \emph{Example 5:} Let $S_{n} = \{f | f:\{1, 2, \dots , n\} \rightarrow \{1, 2, \dots , n\}\}$, such that every $f$ is a permutation.
+    $S_{n}$ is a group under the operation of permutation.
+  \item \emph{Example 6:} Define $\mathbb{Z}_{n} = \{0, 1, \dots ,n - 1\}$.
+    This set is an abelian group under the operation $+ \pmod{n}$.
+  \item \emph{Example 7:} Define $\mathbb{Z}_{n}^{*} = \{0, 1, \dots ,n - 1\}$.
+    This set is an abelian group under the operation $* \pmod{n}$, when $n$ is prime.\\
+    Note that this is not the case when $n$ is composite. 
+    For example, in $\mathbb{Z}_{6}^{*}$, $2 * 3 \equiv 0 \pmod{6}$, which is not in the set, that is, closure is violated.
+  \item \emph{Example 8:} For composite numbers, we redefine $\mathbb{Z}_{n}^{*} = \{m | 1 \leq m \leq n, gcd(m, n)=1 \}$.
+    Under this definition, $\mathbb{Z}_{n}^{*}$ is an abelian group under modular multiplication for all $n$.
+  \item \emph{Example 9:} The set of complex $n^{th}$ roots of unity for any $n$ is an abelian group under multiplication.
+  \item \emph{Example 10:} Consider the curve $y^2 = x^3 - x$.
+    Let the set $E$ be the \{ All points on the curve\} $\cup \  \{ \infty \}$.
+    For any $p, q \in E$, define $p+q$ as first joining $p$ and $q$ by a line, getting the unique point of intersection of the line with the curve itself, and then taking its mirror with respect to the $x$ axis.
+    E is then a group under the above operation.
 \end{itemize}
+ 
+Now that a large number of examples have been presented, the reader should have a basic intuitive idea of a group.
+In the next sections, we study the structure of groups, and mapping between groups.
+
+\section{Subgroups and Group Morphisms}
+\begin{definition} \label{def:subgroup}
+  Let $G$ be a group.
+  A set $H \subseteq G$ is a \textbf{subgroup} of $G$ if $H$ is a group under the same operation. 
+\end{definition}
+More verbosely, $H$ is a subgroup of $G$ if it is a subset of $G$, and the following three properties hold.
+\begin{itemize}
+  \item $e \in H$, where $e$ is the identity element of $G$.
+  \item If $a, b \in H$, then $a \circ b \in H$, where $\circ$ is the operation under which $G$ is a group.
+  \item If $a \in H$, and $a \circ b = e$ in $G$, then $b \in H$.
+    In other words, if an element is in a subgroup, so is its inverse.
+\end{itemize}
+
+Some examples of subgroups are:
+\begin{itemize}
+  \item \emph{Example 1:} The set $\mathbb{Z}$ under addition is a subgroup of $\mathbb{Q}$, which itself is a subgroup of $\mathbb{R}$, which further is a subgroup of $\mathbb{C}$.
+  \item \emph{Example 2:} For any group $G$, $G$ is a subgroup of itself.
+    $G$ is called the improper subgroup of $G$.
+  \item \emph{Example 3:} For any group $G$, the set consisting of only the identity element is a subgroup.
+    This is called the trivial subgroup of $G$.
+    All other subgroups are called non-trivial.
+  \item \emph{Example 4:} Let $G$ be the group of all $nxn$ invertible matrices under multiplication.
+    Consider the subset of all matrices that have determinant $1$.
+    This forms a subgroup of $G$.
+    Similarly, the subset of all matrices that have determinant $\pm 1$ also form a subgroup of $G$.
+    Both of these subgroups are proper and non-trivial.
+\end{itemize}
+
+\begin{definition} \label{def:homomorphism}
+  Let $G$ and $H$ be groups under the operations $+$ and $\oplus$ respectively.
+  Let $\psi: G \rightarrow H$. Mapping $\psi$ is a \textbf{homomorphism} if for all $a, b \in G$, we have $\psi(a + b) = \psi(a) \oplus \psi(b)$.
+  Further, if $\psi$ is also one-one and onto, then $\psi$ is called an \textbf{isomorphism}.
+  In this case, we generally write $G \cong H$.
+\end{definition}
+For example, consider the group $\mathbb{Z}$ of integers under addition, and the group $\mathbb{Q}^{*}$ of non zero rationals under multiplication.
+Let the map $\psi: \mathbb{Z} \rightarrow \mathbb{Q}^{*}, \psi(n) = 2^{n}$.
+$\psi$ is a homomorphism, as for all $a, b \in \mathbb{Z}$, $2^{a+b} = 2^{a} \times 2^{b}$.
