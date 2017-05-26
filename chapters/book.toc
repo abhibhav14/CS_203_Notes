@@ -1,4 +1,0 @@
-\contentsline {chapter}{Contents}{i}
-\contentsline {chapter}{\chapternumberline {1}Groups}{1}
-\contentsline {chapter}{\chapternumberline {2}Rings}{3}
-\contentsline {chapter}{\chapternumberline {3}Fields}{5}

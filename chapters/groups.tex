@@ -1,6 +1,6 @@
 \epigraph{You also get dramatic advances when you spot that you can leave out part of the problem. Algebra, for instance (and hence the whole of computer programming), derives from the realisation that you can leave out all the messy, intractable numbers.}{Douglas Adams (The Salmon of Doubt: Hitchhiking the Galaxy One Last Time, 2002)}
 \par
-The term Group was first used by Galois (who was a brilliant mathematician, but unfortunately was killed in a duel when he was just 20, which might have had been motivaed by a conflict arising from a romantic entanglement) in his quest of solutions of roots of polynomial equations of degrees higher than four.
+The term Group was first used by Galois \footnote{Galois was a brilliant mathematician, but he unfortunately was killed in a duel when he was just 20, which might have had been motivaed by a conflict arising from a romantic entanglement, or his political involvements.} in his quest of solutions of roots of polynomial equations of degrees higher than four.
 The development of group theory has three main roots, the theory of algebraic equations, geometry and number theory.
 Today, group theory and abstract algebra in general sees many uses in the field computer science, from cryptography and coding theory, down to finding computationally faster methods to multiply integers.
 \section{Introduction}
@@ -93,3 +93,76 @@ Some examples of subgroups are:
 For example, consider the group $\mathbb{Z}$ of integers under addition, and the group $\mathbb{Q}^{*}$ of non zero rationals under multiplication.
 Let the map $\psi: \mathbb{Z} \rightarrow \mathbb{Q}^{*}, \psi(n) = 2^{n}$.
 $\psi$ is a homomorphism, as for all $a, b \in \mathbb{Z}$, $2^{a+b} = 2^{a} \times 2^{b}$.
+\par
+Let $\psi$ be a homomorphism from $G$ to $H$.
+\begin{lemma} \label{lem:imagesubgroup}
+  Let $\widehat{H} = \{b | \psi(a) = b, a \in G\}$.
+  $\widehat{H}$ is a subgroup of $H$.
+\end{lemma}
+\begin{proof}
+  If $b, c \in H$, then we have $x, y \in G$ such that $\psi(x) = b, \psi(y) = c$.
+  Then $\psi( x + y) = b \oplus c$ by property of homomorphisms.
+  $\widehat{H}$ is thus closed.
+  Associativity is inherited from $H$.
+  Homomorphisms necessarily map identities to identities.
+  This can trivially be checked by noting that $\psi(e_{g} + e_{g}) = \psi(e_{g}) = \psi(e_{g}) \oplus \psi(e_{g})$ where $e_{g}$ is the identity of $G$.
+  This gives us existence of identity in $\widehat{H}$.
+  Finally, if $\psi(x) = a$, then the image of the inverse of $x$ is the inverse of $a$.
+  This can be derived again by using the fact that identities are mapped to identities.
+\end{proof}
+
+If $\psi$ is a one-one map, then clearly $\psi$ gives an isomorphism between $G$ and $\widehat{H}$.
+If not, then consider the set $\widehat{G} = \{a | a \in G, \psi(a) = e_{h} \}$, where $e_{h}$ is the identity of $H$.
+\begin{lemma} \label{lem:kernelsubgroup}
+  $\widehat{G}$ is a subgroup of $G$.
+\end{lemma}
+\begin{proof}
+  Closure holds since if for $a, b \in \widehat{G}$ we have $\psi(a) = \psi(b) = e_{h}$, then $\psi(a + b) = \psi(a) + \psi(b) = e_{h} + e_{h} = e_{h}$.
+  Associativity is inherited from $G$.
+  Identity exists because homomorphisms map identities to identities.
+  Finally for any $a \in \widehat{G}$, we have that the image of the inverse of $a$ is the inverse of the image of $a$, or the inverse of $e_{h}$, which is $e_{h}$ itself.
+\end{proof}
+This subgroup is called the \textbf{kernel} of $\psi$.
+\section{Effect of $\psi$ on $G$ - Quotienting}
+For each $b$ in $\widehat{H}$, let by $[b] = {a|a \in G, \psi(a) = b}$.
+In this notation, the kernel of $\psi$ is clearly represented by $[e_{h}]$.
+\begin{lemma} \label{lem:partition}
+  For each $b \in \widehat{H}$, we have $[b] = a + \widehat{G}$ for some $a \in G$.
+  Here, $a + \widehat{G}$ refers to the set of all elements that we get by adding $a$ to each element of $\widehat{G}$, or more formally $a + \widehat{G} = \{b|b=a+g, g \in \widehat{G} \}$.
+\end{lemma}
+\begin{proof}
+  Let $\psi(a_{1}) = \psi(a_{2}) = b$.
+  This gives us that $\psi(a_{1} - a_{2}) = 0 \Rightarrow a_{1} - a_{2} \in \widehat{G}$, where $-a_{2}$ refers to the inverse of $a_{2}$ in $G$.
+  This gives us $a_{1} \in a_{2} + \widehat{G}$.
+  But $a_{1}$ was picked arbitrarily.
+  We can repeat the above argument with any element from $[b]$ in place of $a_{1}$, and we always get, for all elements $a$, $a \in a_{2} + \widehat{G}$.
+  This completes the proof.
+\end{proof}
+Further, also note that for every element $a$ that belongs to $a_{2} + \widehat{G}$, we have $\psi(a) = \psi(a_{2}) + \psi(g)$ for some $g \in \widehat{G}$.
+Every element of $a_{2} + \widehat{G}$ maps to $b$ under $\psi$.
+Thus, the elements of $G$ are partitioned, and each can be recognized by an element of $\widehat{H}$ (for every element $b \in \widehat{H}$, the corresponding partition is $[b]$) or by a single element of each partition (implicitely adding $G$ will give the whole class).
+The above gives us an equivalence relationship, with $a_{1} R a_{2} \Leftrightarrow \psi(a_{1}) = \psi(a_{2})$.
+\par
+Define operator $\boxplus$ be defined as $[b_{1}] \boxplus [b_{2}] = [b_{1} \oplus b_{2}]$.
+\par
+Define $G \Big/ \widehat{G} = \{ [b_{i}] | b_{i} \in \widehat{H} \}$.
+\begin{lemma} \label{lem:quotientgroup}
+  $G \Big/ \widehat{G}$ is a group under $\boxplus$.
+\end{lemma}
+\begin{proof}
+  Closure is clear from the definition of $\boxplus$.
+  For associativity, we have
+  \begin{align*}
+    ([a] \boxplus [b]) \boxplus[c] &= [a \oplus b] \boxplus [c] \\
+    &= [(a \oplus b) \oplus c] \\
+    &= [a \oplus (b \oplus c)] \\
+    &= [a] \boxplus [b \oplus c] \\
+    &= [a] \boxplus ([b] \boxplus [c]) \\
+  \end{align*}
+  $[e_{h}]$ clearly acts as the identity.
+  Further, for any $[a]$, the inverse of $[a]$ is simply $[b]$ such that $b$ is the inverse of $a$ in $H$.
+  This follows since $[a] \boxplus [b] = [a \oplus b] = [e_{h}]$.
+\end{proof}
+It is quite obvious that $G \big/ \widehat{G}$ and $H$ are isomorphic, with the map being one that sends $[b] \rightarrow b$.
+\par
+The above formulation is known as the the \textbf{First Isomorphism Theorem}.

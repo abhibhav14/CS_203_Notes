@@ -1,7 +1,8 @@
 \contentsline {chapter}{Contents}{i}
 \contentsline {chapter}{\chapternumberline {1}Groups}{1}
-\contentsline {section}{\numberline {1.1}Introduction}{1}
+\contentsline {section}{\numberline {1.1}Introduction}{2}
 \contentsline {subsection}{Examples}{2}
-\contentsline {section}{\numberline {1.2}Subgroups and Group Morphisms}{3}
-\contentsline {chapter}{\chapternumberline {2}Rings}{5}
-\contentsline {chapter}{\chapternumberline {3}Fields}{7}
+\contentsline {section}{\numberline {1.2}Subgroups and Group Morphisms}{4}
+\contentsline {section}{\numberline {1.3}Effect of $\psi $ on $G$ - Quotienting}{5}
+\contentsline {chapter}{\chapternumberline {2}Rings}{7}
+\contentsline {chapter}{\chapternumberline {3}Fields}{9}
