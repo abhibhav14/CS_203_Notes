@@ -14,6 +14,9 @@ Today, group theory and abstract algebra in general sees many uses in the field 
     \item \textit{Inverse:} For every element $a \in G$, there exists an unique element $b$ that satisfies $a \circ b = b \circ a = e$, where $e$ is the identity, as described above.
   \end{itemize}
   Such a set $G$, if the operation satisfies the above properties, is called a group under $\circ$.
+  Note that the third condition forces the identity to be unique.
+  The proof for this is trivial, and has been left as an exercise. \footnote{Hint: Attempt a proof by contradiction}
+  If this were not the case, the fourth condition would not have made sense.
 \end{definition}
 Put in words, a group is a set, along with a binary operation that is closed under the operation, the operation is associative in the elements of the set, there exists an identity for the operation in the set, and all elements of the set have an inverse.
 \par
@@ -168,3 +171,25 @@ It is quite obvious that $G \big/ \widehat{G}$ and $H$ are isomorphic, with the 
 The above formulation is known as the the \textbf{First Isomorphism Theorem}.
 \par
 We now Quotient $G$ with other subgroups and study the resulting structure.
+\par
+Let $G$ be an abelian group, and $\widehat{G}$ be a subgroup of $G$.
+\par
+For any $a \in G$, define $[a] = \{ b | b \in G, b - a \in \widehat{G} \}$.
+For any $a_{1}, a_{2} \in G, either [a_{1}] = [a_{2}]$ or $[a_{1}] \cap [a_{2}] = \phi$.
+Define $G \Big/ \widehat{G} = \{ [a] | a \in G \}$.
+Define $[a_{1}] \boxplus [a_{2}] = [a_{1} + a_{2}]$.
+$G \Big/ \widehat{G}$ is a group under $\boxplus$.
+It is called the quotient group of $\widehat{G}$.
+\par
+The element $a \in G$ is called the representative element of $[a]$ in the quotient group.
+The representative element is clearly not unique.
+\subsection{Examples}
+\begin{itemize}
+  \item \emph{Example 1:} Consider the group $\mathbb{Z}$, and its subgroup $n \mathbb{Z}$. $\mathbb{Z} \Big/ n \mathbb{Z} = \{ [m] \}$, ie all numbers that are congruent to $m$ modulo $n$.
+    The most natural representative set is ${0, 1, \dots , n-1}$.
+  \item \emph{Example 2:} Consider the group $\mathbb{Q}^{*}$ under multiplication and its subgroup $G = \{ 2^{n} | n \in \mathbb{Z} \}$.
+    $\mathbb{Q}^{*} \Big/ G = \{ [\alpha] \}$, where the representative set can be $ \{ \frac{n}{m} , n, m \in \mathbb{Z} , m \neq 0, m, n \ odd \}$.
+  \item \emph{Example 3:} Consider the group of all $n \times n$ matrices under addition, and its subgroup, the set of all $n \times n$ upper triangular matrices.
+    The quotient group of this subgroup can be represented by the set of all lower triangular matrices, with zero in their diagonals.
+  \item \emph{Example 4:} Consider the group $\mathbb{Z}_{6}$
+\end{itemize}
