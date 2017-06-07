@@ -198,3 +198,36 @@ The representative element is clearly not unique.
     Let the subgroup be any line through the origin.
     The quotient group is the set $ \{ [\alpha, \beta ]\}$ where a possible representative element can be the intersection of the new line with the $x$ axis.
 \end{itemize}
+From this point onwards, we drop the unwieldy notation of using different symbols for representing group actions of various groups.
+All groups will generally be represented by $G$ or $H$, with operation $+$.
+The context should make clear what group the operation is being performed on.
+Further, the identity element will be represented by $0$, and the inverse of an element $a$ by $-a$.
+\section{Finite Groups}
+The \textbf{order} of a group is its cardinality, i.e the number of elements in its set.
+We represent the order of a group $G$ by $|G|$, or ord($G$).
+\begin{theorem} \label{th:order}
+  Let $H$ be a subgroup of an abelian group $G$, with ord($G$) = $l$.
+  Then, ord($H$)$| l$, and in particular, $l = $ ord($H$) $\times$ ord($ G \big/ H $).
+\end{theorem}
+\begin{proof}
+  $H$ divides $G$ into equivalence classes as discussed above, all of size $|H|$.
+  This implies both that ord($H$) $|$ ord($G$) and that ord($G$) =  ord($H$) $\times$ ord($ G \big/ H $)
+\end{proof}
+Similar to how the order for the group was defined, we can also define the order of an element $a \in G$ as follows:
+\par
+For any $a \in G$, let $H_{a} = \{ k \times a | k \in \mathbb{Z} \}$ where $k \times a$ denotes the addition of $a$ to itself $k$ times.
+Then, ord($a$) = ord($H_{a}$).
+$H_{a}$ is then a subgroup, and it is easy to see that it is isomorphic to $\mathbb{Z}_{ord(a)}$
+\par
+$H_{a}$ is more commonly denoted as $\langle a \rangle$.
+$a$ is called a \textbf{generator} if $\langle a \rangle = G$.
+\begin{definition} \label{def:finitegen}
+  Let $G$ be a commutative group, and $a_{1}, a_{2}, \dots, a_{k} \in G$.
+  This set is called a generator set if for all $b \in G$, we have $b = \Sigma_{i=1}^{k} k_{i} \times a_{i}$.
+  Such a group is called finitely generated, and the set $a_{1}, \dots a_{k}$ is called the generator set.
+\end{definition}
+We now give, without proof, a very powerful theorem about finite groups.
+\begin{theorem} \label{th:structurefinite}
+  Structure Theorem for Finite Abelian Groups: Let $G$ be a finite abelian group of order $l$.
+  Then, $G \cong \mathbb{Z}_{p_{1}^{e_{1}}} \times \mathbb{Z}_{p_{2}^{e_{2}}} \times \dots  \times \mathbb{Z}_{p_{k}^{e_{k}}}$ where $p_{i}$ are primes, and $e_{i}$ are integers such that $\Pi p_{i}^{e_{i}} = l$.
+\end{theorem}
