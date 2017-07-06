@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.5.22)  6 JUL 2017 22:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.5.22)  6 JUL 2017 23:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -805,11 +805,7 @@ t fi-nite groups.
 
 ) [8] (../chapters/rings.tex [9
 
-] [10]
-Underfull \vbox (badness 1038) has occurred while \output is active []
-
- [11]
-[12]
+] [10] [11] [12]
 Overfull \hbox (14.59247pt too wide) in paragraph at lines 166--168
 []\OT1/cmr/m/it/12 Example 2: \OT1/cmr/m/n/12 In $\U/msb/m/n/12 Z[]\OML/cmm/m/i
 t/12 ; \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 m\OT1/cmr/m/n/12 ) = \U/msb/m/n/12 Z[]
@@ -834,11 +830,11 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  5009 strings out of 493013
  64005 string characters out of 6133328
- 154198 words of memory out of 5000000
+ 155198 words of memory out of 5000000
  8522 multiletter control sequences out of 15000+600000
  18991 words of font info for 76 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 31i,12n,24p,411b,367s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 31i,12n,24p,411b,342s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 ></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pf
 b></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
@@ -857,7 +853,7 @@ ive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive
 6/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2016
 /texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/
 2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on book.pdf (23 pages, 261569 bytes).
+Output written on book.pdf (23 pages, 263723 bytes).
 PDF statistics:
  151 PDF objects out of 1000 (max. 8388607)
  106 compressed objects within 2 object streams
