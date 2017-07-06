@@ -1,1 +1,341 @@
-Lorem Ipsum
+mepigraph{Reductio ad absurdum, which Euclid loved so much, is one of a mathematician's finest weapons. It is a far finer gambit than any chess play: a chess player may offer the sacrifice of a pawn or even a piece, but a mathematician offers the game.}{G. H. Hardy (A Mathematician's Apology, 1940)}
+\par
+\section{Introduction}
+\begin{definition} \label{def:rings}
+  $( R, +, * )$ is a ring if:
+  \begin{itemize}
+    \item $R$ is a commutative group under $+$.
+    \item $R$ is closed under $*$, associative and has identity.
+    \item For all $a, b \in R$ $a * (b + c) = a * b + a * c$ and similarly $(b+c) * a = b * a + c * a$
+  \end{itemize}
+\end{definition}
+If $*$ is commutative, $R$ is called a \textbf{commutative ring}.
+
+\begin{definition} \label{def:fields}
+  $( F, +, * )$ is a field if:
+  \begin{itemize}
+    \item $F$ is a commutative group under $+$.
+    \item $F^{*} = F \setminus \{ 0 \}$ is a commutative group under $*$.
+    \item Distributivity property holds.
+  \end{itemize}
+\end{definition}
+Fields will be studied more in detail in the sebsequent chapter.
+
+\subsection{Examples}
+\begin{itemize}
+  \item \emph{Example 1:} $\mathbb{Z}$ is a commutative ring.
+  \item \emph{Example 2:} $\mathbb{Q}, \mathbb{R}, \mathbb{C}$ are all fields.
+  \item \emph{Example 3:} $\mathbb{Z}_{n}$ is a ring.
+  \item \emph{Example 4:} $\mathbb{Z}_{p}$ is a field, when $p$ is prime.
+  \item \emph{Example 5:} $n \times n$ matrices from $\mathbb{Q}$ is a ring.
+  \item \emph{Example 6:} For any field $F$, vectors in $F^{n}$ form a commutative ring, under componentwise operations.
+  \item \emph{Example 7:} $R[x]$, the set of all polynomials in $x$ with coefficients from a ring $R$, is a ring under polynomial addition and multiplication. This can be extended to multivariate polynomials over $R$.
+  \item \emph{Example 8:} Let $\mathcal{F}$ be the set of all continuous maps from $\mathbb{R} \rightarrow \mathbb{R}$.
+    $\mathcal{F}$ is a commutative ring, under the operations $+, *$ defined as $(f + g)(x) = f(x) + g(x)$ and $(f * g)(x) = f(x) * g(x)$ for all $f, g$.
+\end{itemize}
+
+\section{Units in Rings}
+Note that from this point onwards, for ring elements $a, b$, we will use $ab$ as shorthand for $a*b$.
+\begin{definition} \label{def:units}
+  Let $R$ be a commutative ring.
+  $a \in R$ is a unit if there exists an element $b$ in $R$ such that $ab = 1$.
+\end{definition}
+
+\subsection{Examples}
+Some very trivial examples of units are $\pm 1$ in $\mathbb{Z}$ and $\mathbb{Z}^{*}$ in $\mathbb{Z}_{n}$.
+\par
+A more interesting example follows.
+Consider $\mathbb{Z}[\sqrt{2}]$, which are the set of all polynomials, with $\sqrt{2}$ substituted for $x$.
+Elements of this ring are of the form $a_{0} + a_{1} \sqrt{2} + \dots + a_{i} \sqrt{2}^{i}$ which can be easily generalized as $\{ a + \sqrt{2} b | a, b \in \mathbb{Z} \}$.
+For some $a+ \sqrt{2} b$ to be an unit, we require $(a + \sqrt{2}b)(c + \sqrt{2} d) = 1$ for some $c, d$.
+This gives us $ac + 2bd + \sqrt{2} (ad + bc) = 1 \Rightarrow ad = -bc \Rightarrow d = -\frac{bc}{a}$
+Substituting this back gives us $a^{2} - 2b^{2} = \frac{a}{c}$.
+Since $a, b, c, d$ are integers, the above can only hold when $a = \alpha c$ and $b = -\alpha d$ for some $\alpha$.
+This finally gives us $1 = (\alpha c - \sqrt{2} \alpha d)(c + \sqrt{2} d) \Rightarrow \alpha (c^{2} - 2d^{2}) = 1 \Rightarrow \alpha = \pm 1, (c^{2} - 2 d^{2}) = \pm 1$.
+The solutions to the above equation give us all units, and it can be shown that the only possible units are the powers of $(1 + \sqrt{2})$.
+\section{Defining primes in $R$}
+We now try and define primes in rings.
+\par
+The first definition we can try is that $a \in R$ is prime if whenever $a = bc$, then wither $b$ or $c$ are units.
+This definition is clearly just an extension of the definition of primes over integers, but is not very adequate, since some rings, like $\mathbb{Z}_{n}$ have no primes under this definition, except the units.
+\par
+\emph{Definition 2:} $a \in R$ is prime if whenever $a$ divides $bc$, it either divides $b$ or $c$.
+Consider $\mathbb{Z}_{6}$.
+$2$ can be written as $2 = 2*4, 2*1, 4*5$, and it is easily checked that $2$ always divides one of the elements of the product.
+Thus, $2$ is a prime under this definition.
+\par
+$a \in R$ is defined as \textbf{irreducible} if whenever $a=bc$, either $b$ or $c$ is a unit, and $a$ is not.
+\section{Solutions of $y^{3} = x^{2} + 2$}
+We now use the tools developed so far to try and find the solutions of this equation.
+The proof here is just a rough sketch, and the details can be easily filled out.
+\par
+We can factorize $x^{2} + 2 = (x + i \sqrt{2})(x - i \sqrt{2})$.
+Consider $\mathbb{Z}[i \sqrt{2}]$, which has elements of the form $ \{ a + i \sqrt{2} b | a, b \in \mathbb{Z} \}$.
+If we assume that $y, (x + i \sqrt{2}), (x - i \sqrt{2})$ are all irreducible, then there cannot be any solutions.
+Thus $y$ needs to be reducible.
+\par
+Starting with the assumption that $y = (a + i \sqrt{2} b)(c + i \sqrt{2} d)$ gives us that $y$ needs to be of the form $y = (m + i \sqrt{2} n)(m - i \sqrt{2}n)$ for some $m, n$.
+These are called conjugates of each other.
+\par
+We have $(m - i \sqrt{2}n)^{3}(m + i \sqrt{2} n)^{3} = (x + i \sqrt{2})(x - i \sqrt{2})$.
+Whatever we equate for $(x + i \sqrt{2})$, we need to assign to $(x - i \sqrt{2})$ its conjugate.
+This gives us two cases, $(x + i \sqrt{2}) = (m + i \sqrt{2} n)^{3}$ and $(x + i \sqrt{2}) = (m + i \sqrt{2} n)^{2}(m - i \sqrt{2}n)$.
+The remaining two cases are similar to these, and are ignored here.
+\par
+\emph{Case I:} gives us $(x + i \sqrt{2}) = (m + i \sqrt{2} n)^{3} = m^{3} - 6n^{2}m + (3m^{2}n - 2 n^{3}) i \sqrt{2}$ which further gives us $x = m^{3} - 6 n^{2}m$ and $1 = 3m^{2}n - 2 b^{3} = 1$.
+Applying the constraint that $m, n$ are integers, we get $n = 1$ and $a = \pm 1$ and thus $x = \pm 5$.
+\par
+\emph{Case II:} gives us $x = m(m^{2} + 2n^{2})$ and $1 = n(m^{2} + 2n^{2})$.
+The integer solutions again give us $n = \pm 1$ which then gives $m^{2} + 2 = \pm 1$, which has no solutions.
+\par
+This shows that solution to the equation include $x = \pm 5, y = 3$.
+
+\section{Ideals}
+In this section, a number of lemma and definition are presented.
+\par
+Consider the ring $\mathbb{Z}[i\sqrt{5}]$.
+In this ring, $9 = 3 \times 3 = (2 + i \sqrt{5})(2 - i \sqrt{5})$.
+$3, (2 + i\sqrt{5}), (2 - i\sqrt{5})$ are all irreducible, therefore, we cannot cancel anything on either side.
+$\mathbb{Z}[i \sqrt{5}]$ is said to not admit unique factorization.
+\subsection{Division in Rings}
+Ring elements satisfy the following two properties:
+\begin{itemize}
+  \item For all $a, b, c \in R$ if $a | b$ and $a | c$ then $a | bc$.
+  \item If $a | b$ then $a | bc$.
+\end{itemize}
+\subsection{Ideal Numbers and Ideals}
+Attempts to fix the problem of Unique Factorizing led to the development of ideal numbers, which generalized to ideals.
+\par
+We represent elements $a \in Ra$ by all $b$ such that $a | b$.
+Let all the $b$ for a given $a$ be represented by $(a)$.
+\begin{lemma} \label{lem: idealnumbers}
+  If $(a) = (c)$ then $a = c \times u$ for some unit $u$.
+\end{lemma}
+\begin{definition}\label{def:ideals}
+  $I \subseteq R$ is an ideal if the following hold:
+  \begin{itemize}
+    \item $(I, +)$ is a subgroup of $(R, +)$.
+    \item For all $a \in I$ and $b \in R$,  $ab \in I$.
+  \end{itemize}
+\end{definition}
+In the ring $\mathbb{Z}[ i \sqrt{5}]$, some ideals are $(3), (2 + i \sqrt{5}), (2 - i \sqrt{5})$.
+Further, consider $(3, 2 + i \sqrt{5}) = \{ 3a + (2 + i \sqrt{5}) b | a, b \in R \}$.
+The fact that this is an ideal is quite clear.
+\par
+Given ideal $I$ of a ring, and a subset $S$ of $I$, $S \subseteq I$, $I$ is generated by $S$, if for every $a \in I, a = \Sigma \alpha_{i} \beta_{i}$, for $\alpha_{i} \in R$ and $\beta_{i} \in S$.
+Elements of $S$ are called generators of $I$.
+$S$ can be either finite or infinite.
+\par
+Ideal $I$ is called a \textbf{principal ideal} if it can be generated by a single element.
+\par
+Let $I_{1}, I_{2}$ be ideals of $R$.
+Then $I_{1} * I_{2} = \{ \Sigma a_{i} b_{i} | a_{i} \in I_{1}, b_{i} \in I_{2} \}$
+\begin{lemma} \label{lem:idealproduct}
+  $I_{1} * I_{2}$ is an ideal.
+\end{lemma}
+\begin{proof}
+  If $c \in I_{1} * I_{2}$ and $\alpha \in R$, then $\alpha c = \alpha \Sigma a_{i} b_{i} = \Sigma (\alpha a_{i}) b_{i}$.
+\end{proof}
+\begin{definition} \label{def:primeideal}
+  Ideal $I$ is called \textbf{prime} if for every $I_{1}, I_{2}$, $I = I_{1} * I_{2} \Rightarrow I_{1} = (1)$ or $I_{2} = (1)$.
+\end{definition}
+\begin{lemma} \label{lem:identityideal}
+  For any ideal $I, I * (1) = I$.
+\end{lemma}
+\begin{proof} \label{proof:identityideal}
+  $a \in I \Rightarrow a = a \times 1 \in I * (1)$ \\
+  $a \in I * (1) \Rightarrow a = \Sigma a_{i} b_{i}$.
+  $a_{i} \in I, b_{i} \in R$ by properties of ideals.
+  This implies $a_{i} b_{i} \in I \Rightarrow \Sigma a_{i} b_{i} \in I$.
+\end{proof}
+\subsubsection{Examples in $\mathbb{Z}[i \sqrt{5}]$ }
+In $\mathbb{Z}[ i \sqrt{5}], (3) = (3, 2 + i \sqrt{5}) * (3, 2 - i \sqrt{5})$.
+\begin{proof}
+  First we need to show that $3 \in (3, 2 + i \sqrt{5}) * (3, 2 - i \sqrt{5})$.
+  Consider $3 * (2 - i \sqrt{5}), 3 * (2 + i \sqrt{5}), -(2 - i \sqrt{5}) * (2 + i \sqrt{5})$ all that belong to $(3, 2 - i \sqrt{5}) * (3, 2 + i \sqrt{5})$.
+  Their sum in $3$.
+  \par
+  Second, consider an element of $(3, 2 - i \sqrt{5}) * (3, 2 + i \sqrt{5}), (3a + (2 + i \sqrt{5})b) * (3c + (2 - i \sqrt{5})d) = 9ac + 9bd + 3a(2 - i \sqrt{5}) + 3c(2 + i \sqrt{5}) \in (3).$
+\end{proof}
+Similarly, in $\mathbb{Z}[i \sqrt{5}], (2 + i \sqrt{5}) = (3, 2 + i \sqrt{5}) * (3, 2 + i \sqrt{5})$ and $(2 - i \sqrt{5}) = (3, 2 - i \sqrt{5}) * (3, 2 - i \sqrt{5})$.
+\subsection{Examples of Ideals in other Rings}
+\begin{itemize}
+  \item \emph{Example 1:} In $\mathbb{Z}$, $(2), (3) ... $ are the principal ideals.
+    There are no other ideals, since for any $a, b \in \mathbb{Z}$, we have $(a, b) = (gcd(a, b))$.
+    This is given by the fact that the gcd of any two numbers is an integer linear combination of the numbers.
+  \item \emph{Example 2:} In $\mathbb{Z}_{n}, (m) = \mathbb{Z}_{n}$ if $gcd(m, n) = 1$.
+    In $\mathbb{Z}_{6}, (2) = \{ 0, 2, 4 \}, (3) = \{0, 3 \} $
+  \item \emph{Example 3:} In $\mathbb{Z}[x]$, the ideal $(p(x))$ for any polynomial $p(x)$ is just all its multiples.
+  \item \emph{Example 4:} In $\mathbb{Z}[x, y]$, consider the ideal $(x, y).$
+    It consists of all polynomals that have $0$ as the constant term.
+  \item \emph{Example 5:} Consider the polynomial generated by $(x, y)$ in $\mathbb{Q}[x, y]$.
+    This ideal has the property that the only ideal larger than it is $(1)$.
+    \begin{proof} \label{pf:maxideals}
+      Consider an ideal $I$ such that $(x, y) \subsetneq I.$
+      Then $p(x, y) = c + q(x, y)$ such that $q(x, y) \in (x, y), c \neq 0$.
+      This gives us $c = p(x, y) - q(x, y) \in I \Rightarrow 1 \in I \Rightarrow I = (1)$.
+    \end{proof}
+    \begin{definition}
+      Ideal $I$ is \textbf{maximal} if $(1)$ is the only ideal larger than $I$.
+    \end{definition}
+  \item \emph{Example 6:} Consider the ring $C_{x}$, the set of all continuous functions from $\mathbb{R} \rightarrow \mathbb{R}$.
+    $I = \{ f \in C_{x}, f(0) = 0 \}$.
+\end{itemize}
+
+\section{Ring Properties, Morphisms and Quotienting}
+\begin{definition} \label{def:dedekind}
+  Ring $R$ is called a \textbf{Dedekind Domain} if
+  \begin{itemize}
+    \item $R$ is an integral domain. (If $a*b = 0$ then $a = 0$ or $b = 0$)
+    \item $R$ is integrally closed.
+    \item All prime ideals of $R$ are maximal.
+    \item All ideals of $R$ are finitely generated
+  \end{itemize}
+\end{definition}
+\begin{theorem} \label{the:dedekind}
+  If $R$ is a Dedekind Domain, then every ideal $I$ of $R$ can be uniquely written as a product of prime factors.
+\end{theorem}
+\begin{definition} \label{def:homomorphism}
+  Let $R_{1}$ and $R_{2}$ be two rings.
+  Function $\phi : R_{1} \rightarrow R_{2}$ is a ring homomorphism if
+  \begin{itemize}
+    \item For all $a, b \in R_{1}, \phi(a + b) = \phi(a) + \phi(b)$
+    \item For all $a, b \in R_{1}, \phi(a * b) = \phi(a) * \phi(b)$
+  \end{itemize}
+\end{definition}
+The above two properties lead to the following:
+\par
+$\phi(0) = \phi(0 + 0) = \phi(0) + \phi(0) \Rightarrow \phi(0) = 0$.
+\par
+$\phi(1) = \phi(1 * 1) = \phi(1) * \phi(1) \Rightarrow \phi(1) * (\phi(1) - 1) = 0$.
+This implies that $\phi(1) = 1$ or $\phi(1) = 1$.
+If $\phi(1) = 0$ then $\phi(a) = \phi(1 * a) = \phi(1) * \phi(a) = 0, \forall a$.
+\begin{definition} \label{def:ringker}
+  The kernel of $\phi$ is $A \subseteq R$ such that $\phi(a) = 0$ for all $a, \in A$.
+  It is represented as $\ker(\phi)$.
+\end{definition}
+$ker(\phi)$ is an additive subgroup of $R$.
+Further, if $a \in ker(\phi)$ then we have $\phi(a * b) = \phi(a) * \phi(b) = 0 * \phi(b) = 0 \Rightarrow ker(\phi)$ is an ideal of the ring.
+\par
+We can further define equivalence classes in $R$, induced by $\phi$, as we did for groups.
+The classes are represented by $ker(\phi), ker(\phi) + a_{1}, ker(\phi) + a_{2} \dots $ for elements $a_{1}, a_{2} \not \in ker(\phi)$.
+\par
+In general, for an ideal $A$, we have $R \big/ A = \{ A, a_{1} + A, a_{2} + A, \dots \}$.
+\begin{lemma} \label{lem:quotient}
+  $R \big/ A$ is a ring where $(a_{1} + A) + (a_{2} + A) = (a_{1} + a_{2}) + A$ and $(a_{1} + A) * (a_{2} + A) = (a_{1} * a_{2}) + A$.
+\end{lemma}
+\begin{proof} \label{proof:quotient}
+  $ R \big/ A$ is a commutative group under $+$, because both $R$ and $A$ are commutative groups under addition.
+  Further considering multiplication, $(a_{1} + \alpha_{1}) * (a_{2} + \alpha_{2}) = a_{1} * a_{2} + a_{1} * \alpha_{2} + \alpha_{1} * \alpha_{2} + a_{2} + \alpha_{1}$.
+  We have $a_{1} * \alpha_{2}, a_{2} + \alpha_{1}, \alpha_{1} + \alpha_{2} \in A$ which means $(a_{1} + \alpha_{1}) * (a_{2} + \alpha_{2}) \in (a_{1} + a_{2}) + A$ independant of the representative element.
+  Finally, distributivity is clear from the distributive property of $R$.
+\end{proof}
+Based on whether we quotient by a maximal ideal, prime ideal or principal ideal, $R \big/ A$ has different properties.
+\subsection{Quotienting by maximal ideals}
+\begin{lemma} \label{lem:maximalquotient}
+  When $I$ is a maximal ideal, $R \big/ A$ is a field.
+\end{lemma}
+\begin{proof} \label{proof:maximalquotient}
+  Let $a + I \in R \big/ I, a \neq 0$.
+  Further, let $0 = I, 1 = 1 + I$.
+  We need to find the inverse of $R \big/ I$.
+  Define $J = (a, I)$, the ideal containing both $a$ and $I$.
+  $I \subsetneq J$ since $a \not \in I$.
+  Since $I$ is maximal, $J = (1)$
+  The elements of $J$ are $a * b + \alpha$ for $b \in R, \alpha \in I$.
+  Since $1 \in J, 1 = a * b + \alpha$.
+  In $R \big/ I$ we get $(a + I) * (b + I) = (a * b) + I = 1 + I \Rightarrow (a + I)^{-1} = (b + I)$.
+\end{proof}
+\subsubsection{Defining real numbers using maximal ideals}
+We now define real numbers using quotienting using maximal ideals.
+\begin{definition} \label{def:cauchy}
+  $(a_{0}, a_{1}, a_{2}, \dots ), a_{i} \in R$ is a \textbf{Cauchy Sequence} if for all $\epsilon > 0, \epsilon \in \mathbb{Q}, \exists m > 0, m \in \mathbb{Z}$ such that for all $ n \geq m, n \in \mathbb{Z}, |a_{n} - a_{m} | < \epsilon$.
+\end{definition}
+For example, $ \{ \frac{3}{1}, \frac{31}{10}, \frac{314}{100}, \frac{3141}{1000}, \frac{31415}{10000}, \dots \}$ is a cauchy sequence that converges to $\pi$.
+\begin{theorem} \label{theorem:cauchyring}
+  Let $\mathcal{R}$ denote the set of all cauchy sequences.
+  $\mathcal{R}$ is a ring under componentwise addition and multiplication.
+\end{theorem}
+\begin{proof} \label{proof:cauchyring}
+  Associativity and identity are borrowed from the ring of real numbers.
+  We need to show closure.
+  \par
+  Let $S_{1} = (a_{0}, a_{1}, a_{2}, \dots )$ and $S_{2} = (b_{0}, b_{1}, b_{2}, \dots ).$
+  Fix an $\epsilon > 0$.
+  Let $m_{1} \in \mathbb{Z}$ such that $|a_{n} - a_{m_{1}}| < \frac{\epsilon}{4} \forall n \geq m_{1}$.
+  Similarly $m_{2} \in \mathbb{Z}$ such that $|b_{n} - b_{m_{2}}| < \frac{\epsilon}{4} \forall n \geq m_{2}$
+  Let $m = max \{ m_{1}, m_{2} \}$.
+  \par
+  We have $|a_{n} + b_{n} - a_{m} - b_{m}| \leq |a_{n} - a_{m}| + |b_{n} - b_{m}|, \forall n > m$.
+  Further, $|a_{n} - a_{m}| + |b_{n} - b_{m}| \leq |a_{n} - a_{m_{1}}| + |a_{m_{1}} - a_{m}| + |b_{n} - b_{m_{2}}| + |b_{m_{2}} - b_{m}| \leq \frac{\epsilon}{4} + \frac{\epsilon}{4} + \frac{\epsilon}{4} + \frac{\epsilon}{4} \leq \epsilon$.
+  Therefore, $S_{1} + S_{2}$ is cauchy.
+  \par
+  Similarly, by picking the right $m$, we can prove that $S_{1} * S_{2}$ is also cauchy.
+  This has been left as an exercise.
+\end{proof}
+Let $I$ be the set of all cauchy sequences converging to $0$.
+\begin{theorem} \label{theorem:cauchymax}
+  $I$ is a maximal ideal of $\mathcal{R}$.
+\end{theorem}
+\begin{proof} \label{proof:cauchymax}
+  $I$ is clearly a commutative group under addition.
+  Further, for any $S \in I$, $S' \in \mathcal{R}$, $S*S'$ clearly converges to $0$.
+  \par
+  Let $S' = (b_{0}, b_{1}, \dots ) \in \mathcal{R}$ such that $S' \not \in I$.
+  Since $S' \not \in I$, there exists $\delta > 0$ such that for all $n \geq n_{\circ}$ for some $n_{\circ}$ we have $|b_{n}| > \delta$.
+  Let $J$ be the ideal containing $I$ and $S'$ and $k = max \{ |b_{i} | \}, 0 \leq i \leq n_{\circ}$
+  Let $t$ be the cauchy sequence with $k + \delta$ as the first $n_{\circ}$ elements, and $0$ as the rest of the elements.
+  $t \in I \Rightarrow S' + t \in J$.
+  All elements of $S' + t = (c_{0}, c_{1}, \dots )$ are atleast as big as $\delta$ in magnitude.
+  Define $t' = (\frac{1}{c_{0}}, \frac{1}{c_{1}}, \dots )$.
+  $t'$ is cauchy, since $| \frac{1}{c_{n}} - \frac{1}{c_{m}}| = \frac{|c_{m} - c_{n}|}{|c_{m} c_{n}|} \leq \frac{|c_{n} - c_{m}|}{\delta^{2}} \leq \frac{\epsilon}{\delta^{2}}$, since $S' + t$ is cauchy.
+  \par
+  Therefore, we have $t' \in \mathcal{R}$ and thus $t' * (S' + t) \in J \Rightarrow (1, 1, \dots) \in J \Rightarrow J = \mathcal{R}$.
+\end{proof}
+$\mathbb{R} = \mathcal{R} \big/ {I}$ is thus a field, and it is exactly the field of real numbers.
+This is because, there is exactly one sequence in it converging to every real number.
+\par
+The above exercise can be repeated with different valuations to get fields such as the the field of p-adics.
+\subsection{Other Examples of Ring Quotienting}
+\begin{itemize}
+  \item \emph{Example 1:} Consider the ring $\mathbb{Z}[i \sqrt{5}]$ and the ideal $(3, 2 + i \sqrt{5})$.
+    The ring is a dedekind domain, therefore $(3, 2 + i \sqrt{5})$, which is prime, is also maximal.
+    An arbitrary element of the ring is $a + i \sqrt{5}b = (a - 2b) + (2 + i \sqrt{5})b$.
+    $a - 2b$ is an integer, and thus can be written as $\gamma + 3c$ where $\gamma$ is either $0, 1$ or $2$.
+    Thus, an arbitrary element is of the form $\gamma + 3c + (2 + i \sqrt{5})b$.
+    When quotienting with $(3, 2 + i \sqrt{5})$, everything except $\gamma$ is absorbed away.
+    Therefore, $\mathbb{Z}[i \sqrt{5}] \big/ (3, 2 + i \sqrt{5}) \cong \mathbb{Z}_{3}$.
+  \item \emph{Example 2:} Consider the ring $\mathbb{Z}$ and ideal $(m)$.
+    Then $\mathbb{Z} \big/ (m) \cong \mathbb{Z}_{m}$.
+    If we consider $(p)$ such that $p$ is prime, then $(p)$ is maximal, the proof of which follows from the fact that the $gcd$ of any two numbers is their integer linear combination.
+    This gives us the fact that $\mathbb{Z} \big/ (p)$ is a field, and is denoted by $\mathbb{F}_{p}$.
+  \item \emph{Example 3:} $F[x]$ where $F$ is a ring.
+    All ideals can be shown to be principal.
+    Consider a polynomial $q(x)$.
+    $F[x] \big/ (q(x))$ is the ring of all polynomials of degree less than the degree of $q(x)$, with operations done modulo $q(x)$.
+    If $q(x)$ is irreducible, then $(q(x))$ is maximal and the quotient ring is a field.
+    \par
+    In particular, if $F[x]$ is $\mathbb{R}[x]$ and $q(x) = x^{2} + 1$, then the quotient field is isomorphic to $\mathbb{C}$.
+  \item \emph{Example 4:} Take $F[x, y] \big/ (x^{2} + y^{2} + 1)$.
+    $(x^{2} + y^{2} + 1)$ is a principal ideal.
+    Consider two elements that belong to the same class, $q_{1}, q_{2}$.
+    $q_{1} - q_{2} \in (x^{2} + y^{2} + 1) \Rightarrow q_{1} - q_{2} = (x^{2} + y^{2} + 1) * p(x, y)$ for some polynomial $p$.
+    This implies that $q_{1}, q_{2}$ take on the same values on the circle $x^{2} + y^{2} + 1$.
+    Put another way, the quotient group captures polynomials that are the same over the given curve, here the circle.
+\end{itemize}
+
+\subsection{Prime and Irreducible Ideals}
+\begin{definition} \label{def:idealprime}
+  Ideal $I$ of ring $R$ is \textbf{prime} if for every $a, b \in R$, if $a * b \in I$, then $a \in I$ or $b \in I$.
+\end{definition}
+\begin{definition} \label{def:idealirred}
+  Ideal $I$ of ring $R$ is \textbf{irreducible} if for every pair of ideals $I_{1}, I_{2}$ of $R$, if $I = I_{1} * I_{2}$ then either $I_{1} = (1)$ or $I_{2} = (1)$.
+\end{definition}
+\begin{lemma} \label{lem:primeintegral}
+  Let $R$ be a ring, and $I$ a prime ideal.
+  Then $R \big/ I$ is an integral domain.
+\end{lemma}
+\begin{proof} \label{proof:primeintegral}
+  Let $a + I, b + I \in R \big/ I$ such that $(a + I) * (b + I) = I \Rightarrow ab + I = I \Rightarrow ab \in I$.
+  This implies that either $a$ or $b$ is in $I$, which means one of $(a + I), (b + I)$ is zero.
+\end{proof}
