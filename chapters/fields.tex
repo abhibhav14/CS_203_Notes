@@ -1,1 +1,84 @@
-Lorem Ipsum
+\epigraph{Algebra is generous; she often gives more than is asked of her.}{Jean d’Alembert}
+This chapter first lists a few general properties of fields, followed by a discussion of finite fields in particular.
+\section{Introduction}
+\begin{theorem} \label{theorem:noideals}
+  A field has no ideals except $(0)$ and $(1)$.
+\end{theorem}
+\begin{theorem} \label{theorem:nomorphisms}
+  If $\phi$ is a homomorphism between two fields, then it is either trivial or one-one.
+\end{theorem}
+Both of the above theorems have very simple proofs that have been left as exercises.
+\begin{theorem} \label{theorem:polyroots}
+  Let $p(x)$ be a polynomial over a field $F$ with degree $d$.
+  Then $p(x)$ has atmost $d$ roots in $F$.
+\end{theorem}
+\begin{proof} \label{proof:polyroots}
+  Proof by strong induction.
+  \par
+  Inductive Hypothesis: A polynomial of degree $d$ over a field has atmost $d$ roots.
+  \par
+  Base Case: For $d = 1$, $p(x) = ax + b \Rightarrow x = - \frac{b}{a}$.
+  \par
+  Inductive Step: Let the inductive hypothesis hold for all numbers from $1$ to $d-1$.
+  Let $\alpha$ be a root of $p(x), \alpha \in F$.
+    $p(x) = p(x) - p(\alpha) = \Sigma_{i} a_{i} x^{i} - \Sigma_{i} a_{i} \alpha^{i} = (x - \alpha) \Sigma_{i} a_{i} \frac{x^{i} - \alpha^{i}}{x - \alpha} = (x - \alpha) p'(x)$, where $p'(x)$ has degree $d - 1$.
+    By induction, $p'(x)$ has atmost $d - 1$ roots, and $p(x)$ has $d$ roots.
+    Further, any $\beta \neq \alpha$ that is not a root of $p'(x)$ cannot be a root of $p(x)$ since fields are integral domains.
+    Thus a degree $d$ polynomial has atmost $d$ roots.
+\end{proof}
+\begin{definition} \label{def:acf}
+  A field $F$ where every polynomial of degree $d$ has exactly $d$ roots is called an \textbf{algebraically closed field}.
+\end{definition}
+\begin{definition} \label{def:char}
+  Let $F$ be a field.
+  The characteristic of $F$ is the smallest integer $n$ such that $\underbrace{1+\cdots+1}_{n \text{ summands}} = 0$.
+\end{definition}
+\begin{lemma} \label{lem:charprime}
+  The characteristic of a field is either $0$ or prime.
+\end{lemma}
+\begin{proof} \label{proof:charprime}
+  Suppose $char(F) = n$, and $n = ab$.
+  Then $\underbrace{1+\cdots+1}_{n \text{ summands}} = 0$.
+  This imples $\underbrace{1+\cdots+1}_{a \text{ summands}} * \underbrace{1+\cdots+1}_{b \text{ summands}} = 0$
+  Since fields are integral domains, one of the terms needs to be zero, which contradicts the fact that $n$ is the smallest integer for which the property holds.
+\end{proof}
+For example, consider the field $\mathbb{Z}_{p}$ where $p$ is prime.
+This is a field of characteristic $p$, and is usually denoted by $\mathbf{F}_{p}$.
+Further, consider an irreducible of degree $d$ in $\mathbf{F}_{p}$, $q(x)$.
+$\mathbf{F}_{p}[x] \big/ (q(x))$ is a field of polynomials with elements in $\mathbf{F}_{p}$.
+This field has characteristic $p$ too, and is denoted by $\mathbf{F}_{p^{d}}$.
+\section{Finite Fields}
+\begin{theorem} \label{theorem:finitefieldiso}
+  Let $\mathbf{F}$ be a finite field, with characteristic $p$.
+  $\mathbf{F}$ is then isomorphic to $\mathbf{F}_{p}[x] / (q(x))$ where $q(x)$ is an irreducible polynomial over $\mathbf{F}_{p}$.
+\end{theorem}
+\begin{theorem} \label{theorem:finitefieldpoly}
+  For every prime $p$ and $d \geq 1$, there exists an irreducible of degree $d$.
+\end{theorem}
+\begin{corollary} \label{cor:finitefieldprimes}
+  For every prime $p$ and $d \geq 1$, there exists a unique finite field of size $p^{d}$ which is denoted by $\mathbf{F}_{p^{d}}$.
+\end{corollary}
+\begin{theorem} \label{theorem:finitefieldcyclic}
+  Let $\mathbf{F}$ be a finite field.
+  Then $\mathbf{F}^{*} = \mathbf{F} \setminus \{ 0 \}$ is a cyclic group.
+\end{theorem}
+\begin{proof} \label{proof:finitefieldcyclic}
+  $\mathbf{F}^{*}$ is finite, and commutative.
+  From \hyperref[def:finitegen]{Structure Theorem} we get that $\mathbf{F} \cong \mathbb{Z}_{p_{1}^{e_{1}}} \times \mathbb{Z}_{p_{2}^{e_{2}}} \dots \mathbb{Z}_{p_{n}^{e_{n}}}$
+  \par
+  Assume $p_{1} = p_{2}$.
+  Consider $\gamma = (p_{1}^{e_{1} - 1} \alpha , p_{2}^{e_{2} - 1} \beta , 0, \dots, 0), \alpha, \beta \in \mathbb{Z}_{p_{1}}$.
+  There are $p_{1}^{2}$ such elements, and all of them are unique in $\mathbf{F} ^{*}$.
+  Further, for each $\gamma$, we get $\underbrace{\gamma + \dots \gamma}_{p_{1} \text{ times}} = (0, 0, \dots , 0)$.
+  Let $\widehat{\gamma} \in \mathbf{F}^{*}$ correspond to $\gamma$.
+  We have $\widehat{\gamma}^{p_{1}} = 1$ for each $\gamma$.
+  This gives us $p_{1}^{2}$ solutions to the polynomial $x^{p_{1}} - 1 = 0$.
+  This contradicts Theorem \ref{theorem:polyroots}.
+  Therefore we have $p_{i} \neq p_{j}$ whenever $i \neq j$.
+  \par
+  Consider $\delta = (1, 1, \dots , 1) \in \mathbb{Z}_{p_{1}^{e_{1}}} \times \mathbb{Z}_{p_{2}^{e_{2}}} \dots \mathbb{Z}_{p_{n}^{e_{n}}}$.
+  $\delta$ has order that is divisible by $p_{i}^{e_{i}}$ for all $i$.
+  Since all $p_{i}^{e_{i}}$ are relatively prime, $\delta$ is divisible by the product.
+  Therefore $ord(\delta) \geq | \mathbf{F}^{*} | \Rightarrow \delta = | \mathbf{F}^{*} |$.
+  Thus we can just find the element in $\mathbf{F}^{*}$ that corresponds to $(1, 1, \dots , 1)$ and this acts as the required generator.
+\end{proof}

@@ -1,26 +1,28 @@
-\contentsline {chapter}{Contents}{i}
-\contentsline {chapter}{\chapternumberline {1}Groups}{1}
-\contentsline {section}{\numberline {1.1}Introduction}{2}
-\contentsline {subsection}{Examples}{2}
-\contentsline {section}{\numberline {1.2}Subgroups and Group Morphisms}{4}
-\contentsline {section}{\numberline {1.3}Effect of $\psi $ on $G$ - Quotienting}{5}
-\contentsline {subsection}{Examples}{7}
-\contentsline {section}{\numberline {1.4}Finite Groups}{7}
-\contentsline {chapter}{\chapternumberline {2}Rings}{9}
-\contentsline {section}{\numberline {2.1}Introduction}{9}
-\contentsline {subsection}{Examples}{10}
-\contentsline {section}{\numberline {2.2}Units in Rings}{10}
-\contentsline {subsection}{Examples}{10}
-\contentsline {section}{\numberline {2.3}Defining primes in $R$}{11}
-\contentsline {section}{\numberline {2.4}Solutions of $y^{3} = x^{2} + 2$}{11}
-\contentsline {section}{\numberline {2.5}Ideals}{12}
-\contentsline {subsection}{Division in Rings}{12}
-\contentsline {subsection}{Ideal Numbers and Ideals}{12}
-\contentsline {subsubsection}{Examples in $\mathbb {Z}[i \sqrt {5}]$ }{13}
-\contentsline {subsection}{Examples of Ideals in other Rings}{13}
-\contentsline {section}{\numberline {2.6}Ring Properties, Morphisms and Quotienting}{14}
-\contentsline {subsection}{Quotienting by maximal ideals}{15}
-\contentsline {subsubsection}{Defining real numbers using maximal ideals}{15}
-\contentsline {subsection}{Other Examples of Ring Quotienting}{16}
-\contentsline {subsection}{Prime and Irreducible Ideals}{17}
-\contentsline {chapter}{\chapternumberline {3}Fields}{19}
+\contentsline {chapter}{Contents}{i}{section*.1}
+\contentsline {chapter}{\chapternumberline {1}Groups}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Introduction}{2}{section.1.1}
+\contentsline {subsection}{Examples}{2}{section*.2}
+\contentsline {section}{\numberline {1.2}Subgroups and Group Morphisms}{4}{section.1.2}
+\contentsline {section}{\numberline {1.3}Effect of $\psi $ on $G$ - Quotienting}{5}{section.1.3}
+\contentsline {subsection}{Examples}{7}{section*.3}
+\contentsline {section}{\numberline {1.4}Finite Groups}{7}{section.1.4}
+\contentsline {chapter}{\chapternumberline {2}Rings}{9}{chapter.2}
+\contentsline {section}{\numberline {2.1}Introduction}{9}{section.2.1}
+\contentsline {subsection}{Examples}{10}{section*.4}
+\contentsline {section}{\numberline {2.2}Units in Rings}{10}{section.2.2}
+\contentsline {subsection}{Examples}{10}{section*.5}
+\contentsline {section}{\numberline {2.3}Defining primes in $R$}{11}{section.2.3}
+\contentsline {section}{\numberline {2.4}Solutions of $y^{3} = x^{2} + 2$}{11}{section.2.4}
+\contentsline {section}{\numberline {2.5}Ideals}{12}{section.2.5}
+\contentsline {subsection}{Division in Rings}{12}{section*.6}
+\contentsline {subsection}{Ideal Numbers and Ideals}{12}{section*.7}
+\contentsline {subsubsection}{Examples in $\mathbb {Z}[i \sqrt {5}]$ }{13}{section*.8}
+\contentsline {subsection}{Examples of Ideals in other Rings}{13}{section*.9}
+\contentsline {section}{\numberline {2.6}Ring Properties, Morphisms and Quotienting}{14}{section.2.6}
+\contentsline {subsection}{Quotienting by maximal ideals}{15}{section*.10}
+\contentsline {subsubsection}{Defining real numbers using maximal ideals}{15}{section*.11}
+\contentsline {subsection}{Other Examples of Ring Quotienting}{16}{section*.12}
+\contentsline {subsection}{Prime and Irreducible Ideals}{17}{section*.13}
+\contentsline {chapter}{\chapternumberline {3}Fields}{19}{chapter.3}
+\contentsline {section}{\numberline {3.1}Introduction}{19}{section.3.1}
+\contentsline {section}{\numberline {3.2}Finite Fields}{20}{section.3.2}
