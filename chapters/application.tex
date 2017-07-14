@@ -1,7 +1,69 @@
 \epigraph{Algebra is generous; she often gives more than is asked of her.}{Jean d’Alembert}
 
 \section{Burnside's Lemma}
-Lorem
+The problem we attempt to solve in this section is the following:
+\par
+We want to create a necklace, that consists of $n$ beads.
+Each bead can be one of two different colors.
+How many such necklaces can we create.
+\par
+Note that we want to only consider unique necklaces.
+For example, there is only necklace with $n-1$ black beads and one red bead, not $n$ different necklaces, and so on.
+\begin{definition} \label{def:groupaction}
+  The \textbf{action} of a group $G$ on a set $X$ is a map with particular properties.
+  Specifically, it is $\phi: G \times X \rightarrow X$ that satisfies:
+  \begin{itemize}
+    \item Identity: $\phi(e, x) = x$ where $x \in X$ and $e$ is the identity of $G$.
+    \item Compatability: $\phi(g, \phi(h, x)) = \phi(gh, x)$.
+  \end{itemize}
+\end{definition}
+This is where the very famous Rubik's Cube example of groups fits.
+The set of all possible states of the Rubik's cube is the set $X$, and the set of cube moves is the group $G$.
+\par
+Another example of group action is one we have already seen, $S_{n}$, the group of permutation actions of a finite set.
+Here, the set of all permutations is the set $X$, and the set of permuation actions is the group.
+\par
+A similar group is the Dihedral Group of regular polygons, $D_{n}$.
+It is the group of symmetries of a regular polygon.
+It consists of rotational symmetries and reflection symmetries.
+\par
+Going back to our necklace problem, consider a set of $2^{n}$ possible necklaces.
+We get this number $2^{n}$ by considering two choices of colours for each of the $n$ beads.
+\par
+Define an equivalence relation on this set as follows: $cRc'$ if there is an element of $D_{n}$ that changes $c$ to $c'$.
+The problem of counting the number of necklaces is basically counting the number of such equivalence classes.
+We call each such equivalence class an \textbf{orbit}.
+The trouble arises since each class is of a different size.
+Burnside's Lemma gives us a solution to this problem.
+\begin{lemma} \label{lem:burnside}
+  Let $G$ be a finite group that acts on $X$.
+  The number of orbits, denoted $|X \big/ G|$ is given by
+  \begin{align*}
+    |X \big/ G| = \frac{1}{|G|} \Sigma_{g \in G} |X^{g}|
+  \end{align*}
+  where for a particular $g$, $X^{g}$ is the subset of $X$ that is unchanged by $g$.
+  For example, $X^{e} = X$, since the identity leaves every element unchanged.
+\end{lemma}
+\begin{proof}
+  The first step we take, is given $x \in X$, to try and find the size of the orbit that $x$ belongs to.
+  Consider the set $G_{x} = \{ gx = x | g \in G \}$.
+  In other words, this is the set of actions that does not change $x$.
+  This is called the stabilizer of $x$.
+  This set is a subgroup (proof left as an exercise).
+  Therefore, we can quotient $G$ by $G_{x}$ to form a quotient group.
+  Consider each element of this quotient group, $G \big/ G_{x}$.
+  This element is a set of actions that all map $x$ to the same element, $x'$.
+  Thus, the number of elements in the orbit of $x$ is simply the size of the group $G \big/ G_{x}$, which is $\frac{|G|}{|G_{x}|}$ by Lagrange theorem, and is denoted by $|G.x|$.
+  \par
+  Consider now the sum $\Sigma_{g \in G} |X^{g}|$. This is simply the cardinality of the set $ \{ (g, x) | gx = x, g \in G, x \in X \}$ and can thus be equivalently written as a sum over the elements of $X$.
+  This gives us $\Sigma_{g \in G} |X^{g}| = \Sigma_{x \in X} |G.x|$.
+  \par
+  Substituting, we get $\Sigma_{g \in G} |X^{g}| = |G| \Sigma_{x \in X} \frac{1}{|G.x|}$.
+  We now use the fact that $X$ is a disjoint union of all its orbits.
+  The sum over $X$ can be reduced as a double summation, one over all the orbits, and an inner summation over all the elements of each orbit.
+  Further, the sum $\Sigma_{x \in A} \frac{1}{|G.x|}$ where $A$ is an orbit is clearly 1, since by definition the orbit contains $|G.x|$ elements, which is same for all $x \in A$.
+  Thus, we get that the summation $\Sigma_{g \in G} |X^{g}| = |G| \Sigma_{x \in X} \frac{1}{|G.x|} = |G| | X \big/ G|$, which completes the proof.
+\end{proof}
 
 \section{Algebraic Geometry}
 Algebraic Geometry is the application of abstract algebra to solve geometric problems.

@@ -28,6 +28,6 @@
 \contentsline {section}{\numberline {3.2}Finite Fields}{20}{section.3.2}
 \contentsline {chapter}{\chapternumberline {4}Applications of Abstract Algebra}{23}{chapter.4}
 \contentsline {section}{\numberline {4.1}Burnside's Lemma}{23}{section.4.1}
-\contentsline {section}{\numberline {4.2}Algebraic Geometry}{23}{section.4.2}
-\contentsline {subsection}{Mapping}{24}{section*.14}
-\contentsline {subsection}{Proof of Pascal's Theorem}{25}{section*.15}
+\contentsline {section}{\numberline {4.2}Algebraic Geometry}{25}{section.4.2}
+\contentsline {subsection}{Mapping}{25}{section*.14}
+\contentsline {subsection}{Proof of Pascal's Theorem}{26}{section*.15}
